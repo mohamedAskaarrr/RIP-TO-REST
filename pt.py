@@ -6,21 +6,21 @@ print("Netmiko is working 🚀")
 routers = [
     {
         'name': 'Router0',
-        'host': 'ROUTER0_IP',  # 🔧 Replace with actual IP
+        'host': '10.0.0.1',  # 🔧 Replace with actual IP
         'username': 'USERNAME',
         'password': 'PASSWORD',
         'secret': 'ENABLE_PASSWORD',
         'networks': ['192.168.1.0'],
-        'passive_interfaces': ['GigabitEthernet0/1']
+        'passive_interfaces': ['GigabitEthernet0/0']
     },
     {
         'name': 'Router1',
-        'host': 'ROUTER1_IP',  # 🔧 Replace with actual IP
+        'host': '10.0.0.2',  # 🔧 Replace with actual IP
         'username': 'USERNAME',
         'password': 'PASSWORD',
         'secret': 'ENABLE_PASSWORD',
-        'networks': ['192.168.2.0'],
-        'passive_interfaces': ['GigabitEthernet0/1']
+        'networks': ['192.168.3.0'],
+        'passive_interfaces': ['GigabitEthernet0/0']
     }
 ]
 
