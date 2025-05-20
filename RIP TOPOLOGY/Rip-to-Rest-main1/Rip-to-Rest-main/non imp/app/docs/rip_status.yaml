@@ -1,0 +1,46 @@
+# docs/rip_status.yml
+tags:
+  - RIP Status
+summary: Get RIP protocol status
+description: Retrieves the RIP protocol status from one or all routers
+parameters:
+  - name: router_id
+    in: path
+    required: false
+    description: Router identifier
+    schema:
+      type: string
+responses:
+  200:
+    description: Successful operation
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            router_id:
+              type: object
+              properties:
+                sending_updates:
+                  type: boolean
+                receive_version:
+                  type: string
+                send_version:
+                  type: string
+                interfaces:
+                  type: array
+                  items:
+                    type: string
+                neighbors:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ip:
+                        type: string
+                      last_update:
+                        type: string
+  401:
+    description: Unauthorized
+  404:
+    description: Router not found
