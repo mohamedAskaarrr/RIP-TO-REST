@@ -78,6 +78,12 @@ def validate_rip_routes(ip, username, password):
     api_routes = [route['network'] for route in cli_routes]
     return api_routes        
 
+def load_topology():
+    topology_file = os.path.join(os.path.dirname(__file__), '..', 'RIP TOPOLOGY.json')
+    with open(topology_file, 'r') as f:
+        data = json.load(f)
+    return data.get('topology', {})        
+
 ### MODELS ###
 login_model = api.model('Login', {'username': fields.String, 'password': fields.String})
 router_model = api.model('Router', {
@@ -146,6 +152,13 @@ class RIPConfig(Resource):
             return {'msg': 'Router not found'}, 404
         result = ru.set_rip_version(ip, router['username'], router['password'], data['version'])
         return {'config': result}, 200
+
+@api.route('/topology')
+class Topology(Resource):
+    @token_required
+    def get(self):
+        topology = load_topology()
+        return topology, 200
 
 if __name__ == '__main__':
     app.run(debug=True)
