@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIP Dashboard</title>
+    <script>
+        async function fetchRouters() {
+            const token = document.getElementById('token').value;
+            const response = await fetch('/routers', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            const data = await response.json();
+            document.getElementById('output').innerText = JSON.stringify(data, null, 2);
+        }
+    </script>
+</head>
+<body>
+    <h1>RIP Dashboard</h1>
+    <input type="text" id="token" placeholder="Enter API Token">
+    <button onclick="fetchRouters()">Fetch Routers</button>
+    <pre id="output"></pre>
+</body>
+</html>

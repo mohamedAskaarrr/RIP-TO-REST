@@ -1,0 +1,4 @@
+flask
+flask-restx
+pyjwt
+netmiko
