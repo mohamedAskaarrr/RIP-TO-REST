@@ -8,6 +8,7 @@ from functools import wraps
 import router_utils as ru
 from datetime import datetime, timedelta
 
+
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 app = Flask(__name__)
 
@@ -64,7 +65,9 @@ def token_required(f):
 def load_routers():
     try:
         with open(DB_FILE, 'r') as f:
-            return json.load(f)
+            routers = json.load(f)
+            print("Loaded routers:", routers)
+            return routers
     except:
         return []
 
@@ -216,3 +219,6 @@ class RouterState(Resource):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+
