@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="RIP To REST Network Project Banner" width="450"/>
+  <img src="rest-api-svgrepo-com.svg" alt="RIP To REST Network Project Banner" width="450"/>
 </p>
 
 # RIP To REST Network Project
@@ -41,13 +41,12 @@ RIP-TO-REST/
 └── README.md
 ```
 
-## REST Network Project Illustration
+## RIP Network topology
 
 <p align="center">
-  <img src="assets/rest-diagram.svg" alt="REST Network Diagram" width="400"/>
+  <img src="Screenshot 2025-07-16 084217.png" alt="REST Network Diagram" width="400"/>
 </p>
 
-*Above: A simple illustration of client-server RESTful architecture.*
 
 ## Contributing
 
